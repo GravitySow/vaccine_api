@@ -12,7 +12,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "Vaccine_Reserve")
+@Table(name = "vaccine_reserve")
 //@JsonIdentityInfo(
 //        generator = ObjectIdGenerators.PropertyGenerator.class,
 //        property = "id")
@@ -31,9 +31,14 @@ public class VaccineReserveHopital {
     @JoinColumn(name = "user_id", insertable=false, updatable=false)
     private Users users;
 
+    @JsonIgnore
     @Column(name = "vaccine_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int vaccineId;
+
+    @ManyToOne
+    @JoinColumn(name = "vaccine_id", insertable=false, updatable=false)
+    private Vaccine vaccine;
 
     @Column(name = "hospital_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
