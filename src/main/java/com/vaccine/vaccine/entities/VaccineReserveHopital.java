@@ -1,6 +1,7 @@
 package com.vaccine.vaccine.entities;
 
 import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.core.JsonGenerator;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -12,9 +13,9 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "Vaccine_Reserve")
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
+//@JsonIdentityInfo(
+//        generator = ObjectIdGenerators.PropertyGenerator.class,
+//        property = "id")
 public class VaccineReserveHopital {
     @Id
     @Column(name = "id")

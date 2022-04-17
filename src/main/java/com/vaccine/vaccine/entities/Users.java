@@ -12,9 +12,9 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "User")
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
+//@JsonIdentityInfo(
+//        generator = ObjectIdGenerators.PropertyGenerator.class,
+//        property = "id")
 public class Users {
     @Id
     @Column(name = "id")
@@ -65,4 +65,9 @@ public class Users {
     @Column(name = "update_date")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Date updateDate;
+
+//    @JsonIgnore
+//    @OneToMany
+//    @JoinColumn(name = "user_id")
+//    private List<VaccineReserveHopital> vaccineReserveHopitals;
 }
