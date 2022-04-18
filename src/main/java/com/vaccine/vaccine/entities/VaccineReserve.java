@@ -33,7 +33,7 @@ public class VaccineReserve {
 
     @Column(name = "vaccine_count")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int vaccine_count;
+    private int vaccineCount;
 
     @Column(name = "date")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
