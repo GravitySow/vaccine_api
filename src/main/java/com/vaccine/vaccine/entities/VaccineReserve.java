@@ -10,9 +10,9 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "vaccine_reserve")
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
+//@JsonIdentityInfo(
+//        generator = ObjectIdGenerators.PropertyGenerator.class,
+//        property = "id")
 public class VaccineReserve {
     @Id
     @Column(name = "id")
@@ -23,13 +23,13 @@ public class VaccineReserve {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
 
-    @Column(name = "vaccine_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int vaccineId;
+    @ManyToOne
+    @JoinColumn(name = "vaccine_id", insertable=false, updatable=false)
+    private Vaccine vaccine;
 
-    @Column(name = "hospital_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int hospitalId;
+    @ManyToOne
+    @JoinColumn(name = "hospitalId", insertable=false, updatable=false)
+    private Hospital hospital;
 
     @Column(name = "date")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -9,9 +9,9 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "hospital")
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
+//@JsonIdentityInfo(
+//        generator = ObjectIdGenerators.PropertyGenerator.class,
+//        property = "id")
 public class Hospital {
     @Id
     @Column(name = "id")
