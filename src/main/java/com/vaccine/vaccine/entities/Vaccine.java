@@ -22,6 +22,10 @@ public class Vaccine {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String name;
 
+    @Column(name = "vaccine")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String vaccine;
+
     @Column(name = "day")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int day;

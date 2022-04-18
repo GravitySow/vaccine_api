@@ -31,6 +31,10 @@ public class VaccineReserve {
     @JoinColumn(name = "hospitalId", insertable=false, updatable=false)
     private Hospital hospital;
 
+    @Column(name = "vaccine_count")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int vaccine_count;
+
     @Column(name = "date")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Date date;
