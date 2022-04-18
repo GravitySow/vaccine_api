@@ -12,6 +12,6 @@ public interface VaccineReserveRepository extends JpaRepository<VaccineReserve, 
 
 //    List<VaccineReserve> findByHospitalId(int HospitalId);
 
-    @Query(value = "SELECT * FROM `Vaccine_Reserve` v INNER JOIN `User` u ON v.user_id = u.id WHERE hospital_id = ?1", nativeQuery = true)
+    @Query(value = "SELECT * FROM `vaccine_reserve` v INNER JOIN `user` u ON v.user_id = u.id WHERE hospital_id = ?1", nativeQuery = true)
     List<VaccineReserveHopital> findByHospitalId(int HospitalId);
 }
