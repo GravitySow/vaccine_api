@@ -97,9 +97,9 @@ public class UserServiceImpl implements UserService {
         VaccineReserveIn v = new VaccineReserveIn();
          v.setUserId((int) inputs.get("userId"));
          v.setVaccineId((int) inputs.get("vaccineId"));
-         v.setHospitalId(inputs.get("hospitalId") == null ? 0 : (int) inputs.get("hospitalId"));
-         v.setVaccineCount(inputs.get("vaccineCount") == null ? 0 : (int) inputs.get("hospitalId"));
-         v.setStatus(inputs.get("hospitalId") == null ? null : "ยังไม่ได้รับวัคซีน");
+         v.setHospitalId((int) inputs.get("hospitalId"));
+         v.setVaccineCount((int) inputs.get("hospitalId"));
+         v.setStatus((int) inputs.get("hospitalId") == 0 ? null : "ยังไม่ได้รับวัคซีน");
          v.setCreateDate(new Date());
 
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
