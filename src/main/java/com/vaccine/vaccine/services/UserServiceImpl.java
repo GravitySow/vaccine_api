@@ -1,14 +1,8 @@
 package com.vaccine.vaccine.services;
 
-import com.vaccine.vaccine.entities.Hospital;
-import com.vaccine.vaccine.entities.Users;
-import com.vaccine.vaccine.entities.Vaccine;
-import com.vaccine.vaccine.entities.VaccineReserve;
+import com.vaccine.vaccine.entities.*;
 import com.vaccine.vaccine.model.LoginInfo;
-import com.vaccine.vaccine.repositories.HospitalRepository;
-import com.vaccine.vaccine.repositories.UserRepository;
-import com.vaccine.vaccine.repositories.VaccineRepository;
-import com.vaccine.vaccine.repositories.VaccineReserveRepository;
+import com.vaccine.vaccine.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -30,6 +24,8 @@ public class UserServiceImpl implements UserService {
     private HospitalRepository hospitalRepository;
     @Autowired
     private VaccineReserveRepository vaccineReserveRepository;
+    @Autowired
+    private VaccineReserveInRepository vaccineReserveInRepository;
 
     public Page<Users> getUsers(PageRequest pageRequest){
         return userRepository.findAll(pageRequest);
@@ -80,7 +76,7 @@ public class UserServiceImpl implements UserService {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         String b = (String) inputs.get("birthday");
         Date birthday = format.parse(b);
-        System.out.println(birthday);
+//        System.out.println(birthday);
         u.setBirthday(birthday);
 
         userRepository.save(u);
@@ -95,5 +91,22 @@ public class UserServiceImpl implements UserService {
         // ใช้ id หา vaccine ที่จอง
         int userId = (int) inputs.get("userId");
         return vaccineReserveRepository.findByUserId(userId);
+    }
+
+    public void reserveVaccine(Map<String, Object> inputs) throws ParseException {
+        VaccineReserveIn v = new VaccineReserveIn();
+         v.setUserId((int) inputs.get("userId"));
+         v.setVaccineId((int) inputs.get("vaccineId"));
+         v.setHospitalId((int) inputs.get("hospitalId"));
+         v.setVaccineCount((int) inputs.get("vaccineCount"));
+         v.setStatus("ยังไม่ได้รับวัคซีน");
+         v.setCreateDate(new Date());
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String d = (String) inputs.get("date");
+        Date date = format.parse(d);
+        v.setDate(date);
+
+        vaccineReserveInRepository.save(v);
     }
 }

@@ -28,4 +28,6 @@ public interface UserService {
     List<Hospital> getHospital();
 
     List<VaccineReserve> getVaccineReserve(Map<String, Object> inputs);
+
+    void reserveVaccine(Map<String, Object> inputs) throws ParseException;
 }

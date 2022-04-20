@@ -67,4 +67,9 @@ public class UserController {
     public  List<VaccineReserve> getVaccineReserve(@RequestBody Map<String, Object> inputs){
         return userService.getVaccineReserve(inputs);
     }
+
+    @PostMapping(value = "/reservevaccine")
+    public void reserveVaccine(@RequestBody Map<String, Object> inputs) throws ParseException{
+        userService.reserveVaccine(inputs);
+    }
 }
