@@ -37,4 +37,8 @@ public class StaffServiceImpl implements StaffService{
         int hospitalId = (int) inputs.get("hospitalId");
         return vaccineReserveHopitalRepository.findByHospitalId(hospitalId);
     }
+
+    public void reserveVaccine(Map<String, Object> inputs){
+        VaccineReserve v = new VaccineReserve();
+    }
 }

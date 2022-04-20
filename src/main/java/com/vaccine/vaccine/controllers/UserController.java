@@ -42,6 +42,16 @@ public class UserController {
         return userService.getVaccine();
     }
 
+    @PostMapping(value = "/getcovidvaccine")
+    public List<Vaccine> getCovidVaccine(){
+        return userService.getCovidVaccine();
+    }
+
+    @PostMapping(value = "/getothervaccine")
+    public List<Vaccine> getOtherVaccine(){
+        return userService.getOtherVaccine();
+    }
+
     @PostMapping(value = "/gethospital")
     public List<Hospital> getHospital(){
         return userService.getHospital();

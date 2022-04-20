@@ -41,6 +41,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<Vaccine> getCovidVaccine() {
+        return vaccineRepository.findCovidVaccine();
+    }
+
+    @Override
+    public List<Vaccine> getOtherVaccine() {
+        return vaccineRepository.findOtherVaccine();
+    }
+
+    @Override
     public LoginInfo login(Map<String, String> inputs){
         String idcardno = inputs.get("idcardno");
         String password = inputs.get("password");

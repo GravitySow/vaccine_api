@@ -17,6 +17,10 @@ public interface UserService {
 
     List<Vaccine> getVaccine();
 
+    List<Vaccine> getCovidVaccine();
+
+    List<Vaccine> getOtherVaccine();
+
     LoginInfo login(Map<String, String> inputs);
 
     void register(Map<String, Object> inputs) throws ParseException;
