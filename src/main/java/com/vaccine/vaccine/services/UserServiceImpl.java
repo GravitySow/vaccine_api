@@ -84,7 +84,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<Hospital> getHospital(){
-        return hospitalRepository.findAll();
+        return hospitalRepository.findAllHospital();
     }
 
     public  List<VaccineReserve> getVaccineReserve(Map<String, Object> inputs) {
