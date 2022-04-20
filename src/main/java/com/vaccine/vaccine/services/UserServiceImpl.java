@@ -97,7 +97,7 @@ public class UserServiceImpl implements UserService {
         VaccineReserveIn v = new VaccineReserveIn();
          v.setUserId((int) inputs.get("userId"));
          v.setVaccineId((int) inputs.get("vaccineId"));
-         v.setHospitalId((int) inputs.get("hospitalId"));
+         v.setHospitalId((int)inputs.get("hospitalId"));
          v.setVaccineCount((int) inputs.get("vaccineCount"));
          v.setStatus((int) inputs.get("hospitalId") == 0 ? null : "ยังไม่ได้รับวัคซีน");
          v.setCreateDate(new Date());
