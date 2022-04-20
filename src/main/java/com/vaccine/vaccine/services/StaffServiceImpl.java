@@ -10,6 +10,7 @@ import com.vaccine.vaccine.repositories.VaccineReserveRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,9 @@ public class StaffServiceImpl implements StaffService{
 
     public List<VaccineReserveHopital> getVaccineReserve(Map<String, Object> inputs){
         int hospitalId = (int) inputs.get("hospitalId");
+        if(hospitalId == 0){
+            return new ArrayList<VaccineReserveHopital>();
+        }
         return vaccineReserveHopitalRepository.findByHospitalId(hospitalId);
     }
 
