@@ -31,4 +31,9 @@ public class StaffController {
     public List<VaccineReserveHopital> getVaccineReserve(@RequestBody Map<String, Object> inputs){
         return staffService.getVaccineReserve(inputs);
     }
+
+    @PostMapping(value = "/checkvaccine")
+    public void checkVaccine(@RequestBody Map<String, Object> inputs){
+        staffService.checkVaccine(inputs);
+    }
 }

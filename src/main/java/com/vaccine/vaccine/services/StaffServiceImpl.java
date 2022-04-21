@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -42,7 +43,15 @@ public class StaffServiceImpl implements StaffService{
         return vaccineReserveHopitalRepository.findByHospitalId(hospitalId);
     }
 
-    public void reserveVaccine(Map<String, Object> inputs){
-        VaccineReserve v = new VaccineReserve();
+//    public void reserveVaccine(Map<String, Object> inputs){
+//        VaccineReserve v = new VaccineReserve();
+//    }
+
+    public void checkVaccine(Map<String, Object> inputs) {
+        int id = (int) inputs.get("id");
+        VaccineReserve v = vaccineReserveRepository.findById(id);
+        v.setUpdateDate(new Date());
+        v.setStatus("ได้รับวัคซีนแล้ว");
+        vaccineReserveRepository.save(v);
     }
 }

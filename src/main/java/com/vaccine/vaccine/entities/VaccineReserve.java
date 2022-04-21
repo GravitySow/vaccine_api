@@ -3,6 +3,7 @@ package com.vaccine.vaccine.entities;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
+import org.springframework.core.annotation.Order;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -35,6 +36,7 @@ public class VaccineReserve {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int vaccineCount;
 
+    @Order(0)
     @Column(name = "date")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Date date;

@@ -14,12 +14,17 @@ import java.util.List;
 @Repository
 @Transactional
 public interface VaccineReserveRepository extends JpaRepository<VaccineReserve, Integer> {
-    List<VaccineReserve> findByUserId(int userId);
+   VaccineReserve findById(int id);
+
+//    List<VaccineReserve> findByUserId(int userId);
 
 //    List<VaccineReserve> findByHospitalId(int HospitalId);
 
     @Query(value = "SELECT * FROM `vaccine_reserve` v INNER JOIN `user` u ON v.user_id = u.id WHERE hospital_id = ?1", nativeQuery = true)
     List<VaccineReserveHopital> findByHospitalId(int HospitalId);
+
+    @Query(value = "SELECT * FROM `vaccine_reserve` WHERE user_id = ?1 Order BY date", nativeQuery = true)
+    List<VaccineReserve> findByUserId(int userId);
 
 //    @Modifying
 //    @Query(value = "insert into vaccine_reserve (`id, `user_id`, `vaccine_id`, `hospital_id`, `vaccine_count`, `date`, `status`, `create_date`, `update_date`) VALUES (NULL, ?1, ?2, ?3, ?4, ?5, ?6, ?7, NULL)"

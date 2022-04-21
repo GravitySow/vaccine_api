@@ -11,4 +11,6 @@ public interface StaffService {
     LoginInfo Login(Map<String, Object> inputs);
 
     List<VaccineReserveHopital> getVaccineReserve(Map<String, Object> inputs);
+
+    void checkVaccine(Map<String, Object> inputs);
 }
