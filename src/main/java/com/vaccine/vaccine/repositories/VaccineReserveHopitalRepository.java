@@ -10,5 +10,5 @@ import java.util.List;
 public interface VaccineReserveHopitalRepository extends JpaRepository<VaccineReserveHopital, Integer> {
 //    List<VaccineReserve> findByUserId(int userId);
 
-    List<VaccineReserveHopital> findByHospitalId(int HospitalId);
+    List<VaccineReserveHopital> findByHospitalIdOrderByDateAsc(int HospitalId);
 }

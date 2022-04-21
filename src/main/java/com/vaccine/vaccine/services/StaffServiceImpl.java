@@ -40,7 +40,7 @@ public class StaffServiceImpl implements StaffService{
         if(hospitalId == 0){
             return new ArrayList<VaccineReserveHopital>();
         }
-        return vaccineReserveHopitalRepository.findByHospitalId(hospitalId);
+        return vaccineReserveHopitalRepository.findByHospitalIdOrderByDateAsc(hospitalId);
     }
 
 //    public void reserveVaccine(Map<String, Object> inputs){
