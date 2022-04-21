@@ -38,7 +38,7 @@ public class UserController {
     }
 
     @PostMapping(value = "/finduser")
-    public Users findUser(Map<String, Object> inputs){
+    public Users findUser(@RequestBody Map<String, Object> inputs){
         return userService.findUser(inputs);
     }
 
