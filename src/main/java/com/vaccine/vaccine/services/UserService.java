@@ -15,6 +15,8 @@ import java.util.Map;
 public interface UserService {
     Page<Users> getUsers(PageRequest pageRequest);
 
+    Users findUser(Map<String, Object> inputs);
+
     List<Vaccine> getVaccine();
 
     List<Vaccine> getCovidVaccine();

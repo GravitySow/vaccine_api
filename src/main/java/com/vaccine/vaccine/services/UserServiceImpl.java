@@ -31,6 +31,11 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll(pageRequest);
     }
 
+    public Users findUser(Map<String, Object> inputs){
+        return userRepository.findById((int) inputs.get("userId"));
+    }
+
+
     @Override
     public List<Vaccine> getVaccine() {
         return vaccineRepository.findAll();

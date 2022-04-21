@@ -37,6 +37,11 @@ public class UserController {
         return userService.getUsers(PageRequest.of(Integer.valueOf(page), Integer.valueOf(size)));
     }
 
+    @PostMapping(value = "/finduser")
+    public Users findUser(Map<String, Object> inputs){
+        return userService.findUser(inputs);
+    }
+
     @PostMapping(value = "/getvaccine")
     public List<Vaccine> getVaccine(){
         return userService.getVaccine();
